@@ -54,14 +54,6 @@ Built with Django 4.2.8 + HTML5 Canvas + Vanilla JS. No database required.
 - Spoiled ballot (any edge touches line): **0 points**
 - Time bonus: **remaining seconds × 2**
 
-## 🚀 Setup
-
-```bash
-cd steady_hand
-pip install -r requirements.txt   # Django 4.2.8 only
-python manage.py runserver
-# Open http://127.0.0.1:8000
-```
 
 No `migrate` needed — zero database.
 
