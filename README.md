@@ -36,33 +36,32 @@ python manage.py runserver
 No database setup needed — this game is completely stateless!
 Best score is saved in the browser's localStorage.
 
-## 📁 Structure
+#  The Steady Hand Election — स्थिर हात निर्वाचन
 
+A bilingual (Nepali + English) browser-based election stamping game.
+Built with Django 4.2.8 + HTML5 Canvas + Vanilla JS. No database required.
+
+## 🎮 Game Modes
+
+| Mode | Timer | Challenge |
+|------|-------|-----------|
+| ⚡ Precinct Rush | 60s | Find and stamp 5 ballots fast |
+| 🕯️ Dimly Lit Booth | 45s | Blurred, wobbly, dark — Hard mode |
+| 📚 Practice | None | Unlimited tries with precision feedback |
+
+## 🏆 Scoring
+- Valid ballot (stamp fully inside border): **+20 points**
+- Spoiled ballot (any edge touches line): **0 points**
+- Time bonus: **remaining seconds × 2**
+
+## 🚀 Setup
+
+```bash
+cd steady_hand
+pip install -r requirements.txt   # Django 4.2.8 only
+python manage.py runserver
+# Open http://127.0.0.1:8000
 ```
-ballot_blitz/
-├── ballot_blitz/          # Django project
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── game/                  # Game app
-│   ├── templates/game/
-│   │   └── index.html     # Game UI & layout
-│   ├── static/game/
-│   │   ├── css/style.css  # All styles
-│   │   └── js/steady_hand_game.js     # Full game engine
-│   ├── views.py
-│   └── urls.py
-├── manage.py
-└── requirements.txt
-```
 
-## 🔧 Integrating into your existing Election project
+No `migrate` needed — zero database.
 
-If you want to add this as an app to your existing Election Django project:
-
-1. Copy the `game/` folder into your Election project
-2. Add `'game'` to `INSTALLED_APPS` in your settings
-3. Include game URLs: `path('game/', include('game.urls'))` in your main urls.py
-4. Run `python manage.py collectstatic`
-"# ballot_blitz" 
-"# ballot_blitz" 

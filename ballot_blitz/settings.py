@@ -1,9 +1,13 @@
 from pathlib import Path
+import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-ballot-blitz-change-this-in-production'
-
+# Initialize environment variables
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+environ.Env.read_env(BASE_DIR / '.env')
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
