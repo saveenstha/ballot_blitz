@@ -65,3 +65,4 @@ If you want to add this as an app to your existing Election Django project:
 3. Include game URLs: `path('game/', include('game.urls'))` in your main urls.py
 4. Run `python manage.py collectstatic`
 "# ballot_blitz" 
+"# ballot_blitz" 
