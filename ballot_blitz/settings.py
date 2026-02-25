@@ -1,16 +1,21 @@
 from pathlib import Path
-import environ
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Initialize environment variables
-env = environ.Env(
-    DEBUG=(bool, False)
-)
-environ.Env.read_env(BASE_DIR / '.env')
-DEBUG = True
+# ── Security ───────────────────────────────────
+# Read SECRET_KEY from environment variable (set this in Render dashboard)
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-local-dev-key-change-me')
 
-ALLOWED_HOSTS = ['*']
+# DEBUG = False in production (Render sets RENDER env var automatically)
+DEBUG = 'RENDER' not in os.environ
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+# In production, allow the Render domain and any custom domain
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 INSTALLED_APPS = [
     'django.contrib.staticfiles',
@@ -19,8 +24,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.common.CommonMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    'django.middleware.common.CommonMiddleware',
 
 ]
 
@@ -40,8 +45,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ballot_blitz.wsgi.application'
-
+# ── Static files (WhiteNoise) ───────────────────
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'           # collectstatic dumps here
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
