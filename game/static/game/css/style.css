@@ -181,6 +181,30 @@ button {
     box-shadow: 0 2px 0 #8b1e28;
 }
 
+.btn-home {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 28px;
+    letter-spacing: 3px;
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    padding: 16px 48px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #2faa5e, 0 10px 20px rgba(0,0,0,0.4);
+    transition: transform 0.1s, box-shadow 0.1s;
+    position: relative;
+}
+
+.btn-home:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 #0b643f, 0 14px 24px rgba(0,0,0,0.4);
+}
+.btn-home:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #195a34;
+}
+
 .credit {
     font-size: 12px;
     color: rgba(255,255,255,0.4);

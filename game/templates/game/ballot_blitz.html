@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Ballot Box Blitz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
@@ -31,7 +32,11 @@
             <div class="instr-row"><span class="instr-icon">💣</span><span>Avoid <strong>BOMBS</strong> — instant -20 pts</span></div>
             <div class="instr-row"><span class="instr-icon">🖱️</span><span>Move mouse / touch to control the box</span></div>
         </div>
-        <button class="btn-start" id="btnStart">CAST YOUR VOTE!</button>
+        <div>
+            <button class="btn-start" id="btnStart">CAST YOUR VOTE!</button>
+            <a href="{% url 'home' %}"><button class="btn-home" id="btnHome">Go Back to Home</button></a>
+        
+        </div>
         <p class="credit">Use arrow keys or mouse to move the ballot box</p>
     </div>
 </div>
