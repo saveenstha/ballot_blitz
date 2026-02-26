@@ -18,6 +18,8 @@ venv/
 env/
 .venv/
 .env/
+bb_env/
+bb_env/*
 
 # Django
 staticfiles/

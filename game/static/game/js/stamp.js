@@ -40,7 +40,7 @@ function drawStampCursor(ctx, x, y, radius, isNearTarget) {
     ctx.translate(x, y);
 
     // Outer rubber stamp body (circle)
-    ctx.strokeStyle = isNearTarget ? '#C9A84C' : '#5D4037';
+    ctx.strokeStyle = isNearTarget ? '#C9A84C' : '#1A3A8F';
     ctx.lineWidth = 2.5;
     ctx.setLineDash([]);
     ctx.beginPath();
@@ -145,7 +145,7 @@ function drawMagnifier(ctx, canvas, stampX, stampY) {
  * Draw ink splat particle effect on canvas
  */
 function createInkSplat(ctx, x, y, radius, valid) {
-    const color = valid ? '#2E7D32' : '#C0392B';
+    const color = valid ? '#2E7D32' : '#1A3A8F';
     const count = valid ? 10 : 14;
     for (let i = 0; i < count; i++) {
         const angle = (i / count) * Math.PI * 2 + (Math.random() - 0.5) * 0.5;
@@ -250,7 +250,7 @@ function drawPracticeDiagram(canvas, stampX, stampY, stampRadius, cell, valid) {
     const sy = toCanY(stampY);
     ctx.beginPath();
     ctx.arc(sx, sy, scaledR, 0, Math.PI * 2);
-    ctx.strokeStyle = valid ? '#2E7D32' : '#C0392B';
+    ctx.strokeStyle = valid ? '#2E7D32' : '#1A3A8F';
     ctx.lineWidth = 2;
     ctx.stroke();
     ctx.fillStyle = valid ? 'rgba(46,125,50,0.12)' : 'rgba(192,57,43,0.12)';

@@ -258,19 +258,19 @@ function drawStampMark(ctx, cx, cy, radius, isValid) {
 
     // Ink bleed circle (smear)
     ctx.globalAlpha = 0.12;
-    ctx.fillStyle = '#C0392B';
+    ctx.fillStyle = '#1A3A8F ';
     ctx.beginPath();
     ctx.arc(0, 0, radius, 0, Math.PI * 2);
     ctx.fill();
 
     // Main ink color
     ctx.globalAlpha = isValid ? 0.88 : 0.75;
-    ctx.fillStyle = '#C0392B';
-    ctx.strokeStyle = '#C0392B';
+    ctx.fillStyle = '#1A3A8F';
+    ctx.strokeStyle = '#1A3A8F';
 
     // Draw Hindu/Buddhist auspicious swastika (right-facing, traditional)
     // Rotated 45 degrees as is traditional in South Asian ballots
-    ctx.rotate(Math.PI / 4);
+    // ctx.rotate(Math.PI / 6);
 
     const arm = radius * 0.52;
     const thick = radius * 0.22;
@@ -294,14 +294,14 @@ function drawStampMark(ctx, cx, cy, radius, isValid) {
     // Four serif legs (right-facing swastika / ᯼)
     ctx.lineWidth = thick * 0.8;
     ctx.lineCap = 'square';
-    // Top arm → right
-    ctx.beginPath(); ctx.moveTo(0, -arm); ctx.lineTo(serif, -arm); ctx.stroke();
-    // Right arm → down
-    ctx.beginPath(); ctx.moveTo(arm, 0); ctx.lineTo(arm, serif); ctx.stroke();
-    // Bottom arm → left
-    ctx.beginPath(); ctx.moveTo(0, arm); ctx.lineTo(-serif, arm); ctx.stroke();
-    // Left arm → up
-    ctx.beginPath(); ctx.moveTo(-arm, 0); ctx.lineTo(-arm, -serif); ctx.stroke();
+    // Top arm → left (Hindu orientation)
+    ctx.beginPath(); ctx.moveTo(0, -arm); ctx.lineTo(-serif, -arm); ctx.stroke();
+    // Right arm → up
+    ctx.beginPath(); ctx.moveTo(arm, 0); ctx.lineTo(arm, -serif); ctx.stroke();
+    // Bottom arm → right
+    ctx.beginPath(); ctx.moveTo(0, arm); ctx.lineTo(serif, arm); ctx.stroke();
+    // Left arm → down
+    ctx.beginPath(); ctx.moveTo(-arm, 0); ctx.lineTo(-arm, serif); ctx.stroke();
 
     ctx.restore();
 }

@@ -10,7 +10,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-local-dev-key-change-
 # DEBUG = False in production (Render sets RENDER env var automatically)
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['https://election-game-ue36.onrender.com/', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["*"]
 
 # In production, allow the Render domain and any custom domain
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -34,7 +34,7 @@ ROOT_URLCONF = 'ballot_blitz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
