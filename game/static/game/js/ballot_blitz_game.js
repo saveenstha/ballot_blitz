@@ -103,12 +103,17 @@ function resizeCanvas() {
     const gameDiv = document.getElementById('screen-game');
     const hud     = document.querySelector('.hud');
     const legend  = document.querySelector('.legend');
-    canvas.width  = gameDiv.clientWidth;
-    canvas.height = gameDiv.clientHeight - hud.offsetHeight - legend.offsetHeight;
+
+    // Use window dimensions as fallback when screen-game is not yet visible
+    canvas.width  = gameDiv.clientWidth  || window.innerWidth;
+    canvas.height = (gameDiv.clientHeight || window.innerHeight)
+                    - (hud     ? hud.offsetHeight     : 0)
+                    - (legend  ? legend.offsetHeight  : 0);
 }
 
 // ── Game Init ────────────────────────────────────
 function initGame() {
+    showScreen('game');
     resizeCanvas();
     state = {
         score:       0,
@@ -135,7 +140,6 @@ function initGame() {
 
     hudBest.textContent = bestScore;
     updateHUD();
-    showScreen('game');
 
     lastTime = performance.now();
     cancelAnimationFrame(animId);
