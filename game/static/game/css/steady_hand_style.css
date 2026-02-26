@@ -33,6 +33,17 @@ html, body {
     -webkit-tap-highlight-color: transparent;
 }
 
+/* Restore cursor on all interactive elements and non-game screens */
+.screen#screen-start *,
+.screen#screen-pause *,
+.screen#screen-results *,
+.screen#screen-howto *,
+button,
+a {
+    cursor: pointer !important;
+}
+
+
 /* ═══ SCREENS ═══════════════════════════════════ */
 .screen {
     position: fixed; inset: 0;

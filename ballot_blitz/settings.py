@@ -48,6 +48,6 @@ WSGI_APPLICATION = 'ballot_blitz.wsgi.application'
 # ── Static files (WhiteNoise) ───────────────────
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'           # collectstatic dumps here
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

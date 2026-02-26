@@ -29,6 +29,14 @@ html, body {
     user-select: none;
 }
 
+/* Restore cursor on non-game screens and buttons */
+#screen-start *,
+#screen-gameover *,
+#screen-pause *,
+button {
+    cursor: pointer !important;
+}
+
 /* ======= SCREENS ======= */
 .screen {
     position: fixed;
